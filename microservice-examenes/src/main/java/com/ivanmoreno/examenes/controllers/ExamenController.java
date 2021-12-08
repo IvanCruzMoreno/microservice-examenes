@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ivanmoreno.commons.controllers.CommonController;
-import com.ivanmoreno.examenes.models.entity.Examen;
+import com.ivanmoreno.commons.models.entity.Examen;
 import com.ivanmoreno.examenes.services.ExamenService;
 
 @RestController
