@@ -2,9 +2,12 @@ package com.ivanmoreno.examenes.controllers;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,7 +26,11 @@ public class ExamenController extends CommonController<Examen, ExamenService>{
 	private AsignaturaService asignaturaService;
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> edit(@RequestBody Examen examen, @PathVariable Long id) {
+	public ResponseEntity<?> edit(@Valid @RequestBody Examen examen, BindingResult result, @PathVariable Long id) {
+		
+		if(result.hasErrors()) {
+			return this.validar(result);
+		}
 		
 		Optional<Examen> optionalExamen = this.service.findById(id);
 		
