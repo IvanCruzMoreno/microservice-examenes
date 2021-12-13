@@ -15,7 +15,7 @@ public class ExamenServiceImpl extends CommonServiceImpl<Examen, ExamenRepositor
 	public ExamenServiceImpl(ExamenRepository repository) {
 		super(repository);
 	}
-
+	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Examen> findByNombre(String value) {
