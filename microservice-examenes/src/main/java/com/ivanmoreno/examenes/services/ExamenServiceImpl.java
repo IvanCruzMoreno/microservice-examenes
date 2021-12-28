@@ -22,4 +22,10 @@ public class ExamenServiceImpl extends CommonServiceImpl<Examen, ExamenRepositor
 		return this.repository.findByNombre(value);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<Long> findExamenesIdsByPreguntasIds(List<Long> preguntasId) {
+		return this.repository.findExamenesIdsByPreguntasIds(preguntasId);
+	}
+
 }

@@ -9,4 +9,5 @@ public interface ExamenService extends CommonService<Examen>{
 
 	public List<Examen> findByNombre(String value);
 	
+	public List<Long> findExamenesIdsByPreguntasIds(List<Long> preguntasId);
 }
